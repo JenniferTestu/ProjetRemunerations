@@ -1,0 +1,31 @@
+security:
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    encoders:
+        App\Entity\User:
+            algorithm: bcrypt
+    providers:
+        our_db_provider:
+            entity:
+                class: App\Entity\User
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            remember_me:
+                secret:   '%kernel.secret%'
+                lifetime: 604800 # 1 week in seconds
+            pattern: ^/
+            anonymous: true
+            http_basic: ~
+            provider: our_db_provider
+            form_login:
+                login_path: login
+                check_path: login
+            logout:
+                path: /logout
+                target: /accueil
+
+    access_control:
+         - { path: ^/users, roles: ROLE_USER }
+        # - { path: ^/profile, roles: ROLE_USER }
