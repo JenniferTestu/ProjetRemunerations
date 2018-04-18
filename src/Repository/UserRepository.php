@@ -24,6 +24,18 @@ class UserRepository extends EntityRepository implements UserLoaderInterface
             ->getOneOrNullResult();
     }
 
+    public function getType($id)
+    {
+        $result= $this->createQueryBuilder('u')
+                    ->select('u.type')
+                    ->where('u.id = :id')
+                    ->setParameter('id', $id)
+                    ->getQuery()
+                    ->execute();
+        foreach ($result[0] as $data);
+        return $data;
+    }
+
     /*
     public function findByExampleField($value)
     {

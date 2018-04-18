@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ResponsableRepository")
  */
-class Responsable
+class Responsable extends User
 {
 	/**
      * @ORM\GeneratedValue
