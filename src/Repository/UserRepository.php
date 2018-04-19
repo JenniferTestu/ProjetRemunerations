@@ -36,19 +36,18 @@ class UserRepository extends EntityRepository implements UserLoaderInterface
         return $data;
     }
 
-    /*
-    public function findByExampleField($value)
+    
+    public function findByType($value)
     {
         return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
+            ->andWhere('u.type = :val')
             ->setParameter('val', $value)
-            ->orderBy('u.id', 'ASC')
-            ->setMaxResults(10)
+            //->orderBy('u.id', 'ASC')
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?User

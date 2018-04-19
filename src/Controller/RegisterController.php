@@ -35,7 +35,8 @@ class RegisterController extends Controller
      	 ->add('type',ChoiceType::class, array(
     	'choices'  => array(
         'Commercial' => "Commercial",
-        'Responsable' => "Responsable")))
+        'Responsable' => "Responsable",
+        'Administrateur' => "Administrateur")))
      	 ->add('Valider', SubmitType::class, array('label' => 'Enregistrer'))
      	 ->getForm();
 
