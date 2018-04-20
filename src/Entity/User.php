@@ -44,6 +44,10 @@ class User implements UserInterface
      */
     private $type;
 
+    /**
+   * @ORM\OneToOne(targetEntity="User")
+   */
+    private $responsable;
 
 
     public function getId()
