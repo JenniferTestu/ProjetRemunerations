@@ -113,6 +113,18 @@ class User implements UserInterface
         $this->type = $type;
     }
 
+    public function getResponsable(): ?User
+    {
+        return $this->responsable;
+    }
+
+    public function setResponsable(User $responsable): self
+    {
+        $this->responsable = $responsable;
+
+        return $this;
+    }
+
     public function getSalt()
     {
 
@@ -133,5 +145,12 @@ class User implements UserInterface
     public function getUsername()
     {
         return $this->nom;
+    }
+
+    public function isResponsable(){
+        if($type="Responsable")
+            return true;
+        else 
+            false;
     }
 }

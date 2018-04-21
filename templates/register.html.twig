@@ -59,6 +59,10 @@
                     {{ form_label(form.type, "Ce compte est pour un :", {'label_attr': {'for':'type'}})}}
                     {{ form_widget(form.type,{'attr': {'class': 'form-control'}}) }}           
               </div>
+              <div class="col-md-6">
+                    {{ form_label(form.type, "Rattaché au Responsable :", {'label_attr': {'for':'responsable'}})}}
+                    {{ form_widget(form.responsable,{'attr': {'class': 'form-control'}}) }}           
+              </div>
             </div>
           </div>
           <!--<a class="btn btn-primary btn-block" href="/login">S'enregistrer</a>-->

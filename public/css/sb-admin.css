@@ -70,7 +70,7 @@ body.fixed-nav {
   max-height: 75vh;
 }
 
-#mainNav .navbar-collapse .navbar-nav .nav-item .nav-link {
+#mainNav .navbar-collapse .navbar-nav .nav-item .nav-link, .table-row {
   cursor: pointer;
 }
 

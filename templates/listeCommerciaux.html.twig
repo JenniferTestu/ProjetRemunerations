@@ -93,7 +93,7 @@
               </thead>
               <tbody>
                 {% for liste in liste %}
-                <tr>
+                <tr class="table-row" data-href="http://tutorialsplane.com">              
                   <td>{{ liste.nom }}</td>
                   <td>{{ liste.prenom }}</td>
                   <td>{{ liste.email }}</td>
@@ -141,6 +141,13 @@
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/sb-admin-charts.min.js"></script>
+    <script type="text/javascript">
+$(document).ready(function($) {
+    $(".table-row").click(function() {
+        window.document.location = $(this).data("href");
+    });
+});
+</script>
   </div>
 </body>
 

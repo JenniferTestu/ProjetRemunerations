@@ -15,6 +15,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use App\Entity\User;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType; 
+use App\Repository\UserRepository;
 
 
 class RegisterController extends Controller
@@ -37,6 +39,16 @@ class RegisterController extends Controller
         'Commercial' => "Commercial",
         'Responsable' => "Responsable",
         'Administrateur' => "Administrateur")))
+         ->add('responsable', EntityType::class, array(
+        'class' => 'App\Entity\User',
+        'query_builder' => function (UserRepository $er) {
+            return $er->createQueryBuilder('u')
+                ->where('u.type = :type')
+                ->setParameter('type', "Responsable")
+                ->orderBy('u.nom', 'ASC');
+        },
+        'choice_label' => 'nom'
+        ))
      	 ->add('Valider', SubmitType::class, array('label' => 'Enregistrer'))
      	 ->getForm();
 
