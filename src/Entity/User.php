@@ -120,9 +120,13 @@ class User implements UserInterface
 
     public function setResponsable(User $responsable): self
     {
-        $this->responsable = $responsable;
-
-        return $this;
+        if($type="Commercial"){
+            $this->responsable = $responsable;
+            return $this;
+        }else{
+            $this->responsable = NULL;
+            return $this;
+        }
     }
 
     public function getSalt()

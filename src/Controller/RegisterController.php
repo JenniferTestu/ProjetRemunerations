@@ -47,7 +47,9 @@ class RegisterController extends Controller
                 ->setParameter('type', "Responsable")
                 ->orderBy('u.nom', 'ASC');
         },
-        'choice_label' => 'nom'
+        'choice_label' => 'nom',
+        'empty_data'  => null,
+        'required' => false
         ))
      	 ->add('Valider', SubmitType::class, array('label' => 'Enregistrer'))
      	 ->getForm();
