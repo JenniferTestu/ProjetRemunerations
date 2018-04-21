@@ -89,6 +89,7 @@
                   <th>Nom</th>
                   <th>Prénom</th>
                   <th>Email</th>
+                  <th>Responsable</th>
                 </tr>
               </thead>
               <tbody>
@@ -97,6 +98,7 @@
                   <td>{{ liste.nom }}</td>
                   <td>{{ liste.prenom }}</td>
                   <td>{{ liste.email }}</td>
+                  <td>{{ liste.responsable.prenom }} {{ liste.responsable.nom }}</td>
                 </tr>
                 {% endfor %}
               </tbody>

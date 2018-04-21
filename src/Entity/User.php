@@ -45,7 +45,7 @@ class User implements UserInterface
     private $type;
 
     /**
-   * @ORM\OneToOne(targetEntity="User")
+   * @ORM\ManyToOne(targetEntity="User")
    */
     private $responsable;
 
