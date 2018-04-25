@@ -78,15 +78,54 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Espace Administrateur</a>
+          <a href="espace">Espace Administrateur</a>
         </li>
-        <li class="breadcrumb-item active">Mon espace</li>
+        <li class="breadcrumb-item active">Liste des objectifs</li>
 
       </ol>
 
-         <!-- /Card Columns-->
+         
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Commercial</th>
+                  <th>Type d'objectif</th>
+                  <th>Objectif</th>
+                  <th>Récompense</th>
+                  <th>Date de début</th>
+                  <th>Date de fin</th>
+                  <th>Proportionnel inferieur</th>
+                  <th>Proportionnel superieur</th>
+                  <th>Vente atteinte</th>
+                  <th>Prime calculée</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for liste in liste %}
+                <tr>           
+                  <td>{{ liste.commercial.prenom }} {{ liste.commercial.nom }}</td>   
+                  <td>{{ liste.type }}</td>
+                  <td>{{ liste.objectif }}</td>
+                  <td>{{ liste.recompense }}</td>
+                  <td>{{ liste.dateDebut|date('d-m-Y') }}</td>
+                  <td>{{ liste.dateFin|date('d-m-Y') }}</td>
+                  <td>{{ liste.proportionnelInf }}</td>
+                  <td>{{ liste.proportionnelSup }}</td>
+                  <td>{{ liste.venteAtteinte }}</td>
+                  <td>{{ liste.prime.prime }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div class="col-lg-4">
+      </div>
+
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>

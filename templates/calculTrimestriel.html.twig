@@ -78,15 +78,17 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Espace Administrateur</a>
+          <a href="/espace">Espace Administrateur</a>
         </li>
-        <li class="breadcrumb-item active">Mon espace</li>
+        <li class="breadcrumb-item active">Calcul trimestriel</li>
 
       </ol>
-
-         <!-- /Card Columns-->
-        </div>
-        <div class="col-lg-4">
+      <a class="btn btn-primary btn-block" href="{{ path('lancementcalcul') }}">Lancement du calcul</a>
+      {% for message in app.flashes('notice') %}
+      <div class="flash-notice">
+        {{ message }}
+      </div>
+      {% endfor %}
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
