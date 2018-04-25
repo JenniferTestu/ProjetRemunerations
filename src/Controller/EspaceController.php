@@ -12,7 +12,7 @@ class EspaceController extends Controller
      */
     public function index()
     {
-	    /*$this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+	    $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 	    $user = $this->getUser();
 	    $idUser = $user->getId();
 	    $repository = $this->getDoctrine()->getRepository('App:User');
@@ -27,6 +27,6 @@ class EspaceController extends Controller
 	    else{
         	return $this->render('indexAdministrateur.html.twig');
     	}
-    	*/
+
     }
 }

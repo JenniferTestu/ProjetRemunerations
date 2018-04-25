@@ -47,7 +47,6 @@ class UserRepository extends EntityRepository implements UserLoaderInterface
             ->getResult()
         ;
     }
-    
 
     /*
     public function findOneBySomeField($value): ?User

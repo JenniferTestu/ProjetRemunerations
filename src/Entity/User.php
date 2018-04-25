@@ -45,9 +45,14 @@ class User implements UserInterface
     private $type;
 
     /**
-   * @ORM\ManyToOne(targetEntity="User")
-   */
+    * @ORM\ManyToOne(targetEntity="User")
+    */
     private $responsable;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Objectif", mappedBy="commercial", fetch="EXTRA_LAZY")
+     */
+    private $objectifs;
 
 
     public function getId()
@@ -127,6 +132,14 @@ class User implements UserInterface
             $this->responsable = NULL;
             return $this;
         }
+    }
+
+    public function getObjectifs()
+    {
+        if($type="Commercial")
+            return $this->objectifs;
+        else
+            return null;
     }
 
     public function getSalt()

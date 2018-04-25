@@ -19,22 +19,30 @@ class ObjectifRepository extends ServiceEntityRepository
         parent::__construct($registry, Objectif::class);
     }
 
-//    /**
-//     * @return Objectif[] Returns an array of Objectif objects
-//     */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @return Objectif[] Returns an array of Objectif objects
+     */
+    public function findByDate(\DateTime $date)
     {
         return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('a.id', 'ASC')
-            ->setMaxResults(10)
+            ->andWhere('a.dateFin <= :date')
+            ->setParameter('date', $date->format('Y-m-j'))
+            ->andWhere('a.prime is null')
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
+
+    public function findByCommercial(User $u)
+    {
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.commercial = :u')
+            ->setParameter('u', $u)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
     /*
     public function findOneBySomeField($value): ?Objectif
