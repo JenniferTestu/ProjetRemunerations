@@ -97,7 +97,11 @@
                   <td>{{ liste.proportionnelInf }}</td>
                   <td>{{ liste.proportionnelSup }}</td>
                   <td>{{ liste.venteAtteinte }}</td>
-                  <td>{{ liste.prime.prime }}</td>
+                  <td>{% if liste.prime==null %}
+                        Pas encore calculée
+                        {% else %}
+                        {{liste.prime.prime}}
+                        {% endif %}</td>
                 </tr>
                 {% endfor %}
               </tbody>

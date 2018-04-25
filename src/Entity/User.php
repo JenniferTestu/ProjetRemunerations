@@ -50,7 +50,7 @@ class User implements UserInterface
     private $responsable;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Objectif", mappedBy="commercial", fetch="EXTRA_LAZY")
+     * @ORM\OneToMany(targetEntity="App\Entity\Objectif", mappedBy="commercial")
      */
     private $objectifs;
 

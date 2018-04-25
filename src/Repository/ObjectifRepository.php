@@ -34,7 +34,7 @@ class ObjectifRepository extends ServiceEntityRepository
     }
 
 
-    public function findByCommercial(User $u)
+    public function findByCommercial($u)
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.commercial = :u')

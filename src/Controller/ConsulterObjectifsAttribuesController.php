@@ -16,6 +16,16 @@ class ConsulterObjectifsAttribuesController extends Controller
         $user = $this->getUser();
         $idUser = $user->getId();
 
+		$repository = $this->getDoctrine()->getRepository('App:User');
+        $equipe=$repository->findCommercialByResponsable($user);
+        
+        $repository2 = $this->getDoctrine()->getRepository('App:Objectif');
+        $liste=array();
+
+        foreach ($equipe as $e) {
+        	$r = $repository2->findByCommercial($e);
+        	$liste = array_merge($liste, $r);
+        }
 
         return $this->render('consulterObjectifsAttribues.html.twig',array('liste'=>$liste));
     }
