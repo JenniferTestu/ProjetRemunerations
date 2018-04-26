@@ -99,7 +99,7 @@
                 </tr>
               </thead>
               <tbody>
-                <!--
+                
                 {% for liste in liste %}
                 <tr>           
                   <td>{{ liste.commercial.prenom }} {{ liste.commercial.nom }}</td>   
@@ -111,10 +111,14 @@
                   <td>{{ liste.proportionnelInf }}</td>
                   <td>{{ liste.proportionnelSup }}</td>
                   <td>{{ liste.venteAtteinte }}</td>
-                  <td>{{ liste.prime.prime }}</td>
+                  <td>{% if liste.prime==null %}
+                        Pas encore calculée
+                        {% else %}
+                        {{liste.prime.prime}}
+                        {% endif %}</td>
                 </tr>
                 {% endfor %}
-                -->
+                
               </tbody>
             </table>
           </div>
@@ -131,15 +135,15 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Vous voulez vraiment nous quitter?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-body">Cliquez sur "Se déconnecter" si vous voulez mettre fin à votre connexion.</div>
           <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="/login">Logout</a>
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+            <a class="btn btn-primary" href="/login">Se déconnecter</a>
           </div>
         </div>
       </div>

@@ -42,7 +42,16 @@ class UserRepository extends EntityRepository implements UserLoaderInterface
         return $this->createQueryBuilder('u')
             ->andWhere('u.type = :val')
             ->setParameter('val', $value)
-            //->orderBy('u.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function findCommercialByResponsable($value)
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.responsable = :val')
+            ->setParameter('val', $value)
             ->getQuery()
             ->getResult()
         ;

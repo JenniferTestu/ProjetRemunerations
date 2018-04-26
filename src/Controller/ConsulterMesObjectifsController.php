@@ -15,8 +15,6 @@ class ConsulterMesObjectifsController extends Controller
     	$this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
         $idUser = $user->getId();
-        //$repository = $this->getDoctrine()->getRepository('App:Objectif');
-        //$liste=$repository->findByCommercial($user);
         $liste=$user->getObjectifs();
         return $this->render('consulterMesObjectifs.html.twig',array('liste'=>$liste));
     }

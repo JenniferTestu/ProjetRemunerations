@@ -36,6 +36,7 @@ class CalculTrimestrielController extends Controller
     {
     	$this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 		$objectifs = $this->getDoctrine()->getRepository(Objectif::class)->findByDate(new \DateTime('now'));
+        $i=0;
 
 		foreach ($objectifs as $o) {
 			$commercial= $o->getCommercial();
@@ -50,9 +51,9 @@ class CalculTrimestrielController extends Controller
 			$em->persist($prime);
 			$em->persist($o);
        		$em->flush();
-       		
+       		$i++;
 		}
 
-		return new Response('Les calculs ont été fait '.$prime->getPrime());
+		return new Response('Les calculs ont été fait : '.$i.'sur'.sizeof($objectifs));
     }
 }
